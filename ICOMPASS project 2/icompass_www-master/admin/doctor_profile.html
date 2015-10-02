@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/prima.css">
+        <link rel="stylesheet" type="text/css" href="../css/common.css">
+        <!-- Bootstrap Core CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/dist/css/sb-admin-2.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/meth.js"></script>
+            <!-- jQuery -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/dist/js/sb-admin-2.js"></script>
+        <style type="text/css">
+            a:hover{
+                background-color: green;
+            }
+
+            .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+                color: #fff;
+                background-color: #ef8a13;
+            }
+
+            a {
+                color: #ef8a13;
+                text-decoration: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="back">
+
+        </div>
+        <div id="fore">
+            <div id="cont">
+            <center>
+                <div id="text-wrapper">
+                    <h1>Eustaquio, Mark Ian</h1>
+
+                    <div class="panel panel-default">
+                      
+                        <!-- /.panel-heading -->
+                        <div class="panel-body overrideclass">
+                            <!-- Nav tabs -->
+
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="active"><a href="#personal-info-pills" data-toggle="tab">Personal Info</a>
+                                </li>
+                                <li><a href="#prescription-pills" data-toggle="tab">Prescriptions</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="personal-info-pills">
+                                    <div id="table-personal-info-wrapper">
+                                        <table id="table-personal-info">
+                                            <tr>
+                                                <td class="label2">Username:</td>
+                                                <td class="info">IEustaquio</td>
+                                            <tr>
+                                                
+                                            <tr>
+                                                <td class="label2">Password:</td>
+                                                <td class="info"><a href="pass_reset.html"><i>Change Password</i></a></td>
+                                            <tr>
+
+                                            <tr>
+                                                <td class="label2">Last name:</td>
+                                                <td class="info">Eustaquio</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="label2">First name:</td>
+                                                <td class="info">Mark</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="label2">Middle name:</td>
+                                                <td class="info">Ian</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label2">Specialty:</td>
+                                                <td class="info">Oncology</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label2" colspan="2">Clinic Hours:</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label2" colspan="2"><span style="margin-left:20px">Meow</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label2">Contact Number:</td>
+                                                <td class="info">09227792279</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="prescription-pills">
+                                    <div id="content-prescriptions">
+                                        <textarea placeholder="Please enter your prescriptions here." id="view-patient-prescriptions-textarea"></textarea>
+                                        <br>
+                                        <button id="edit-prescription-button">Edit</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+                    <script>
+                        $(document).ready(function(){
+                            $('#button-personal-info').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-prescriptions').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-pain-test-results').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-doctors-list').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"black"
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </center>
+            </div>
+        </div>
+            <div id="head">
+                <button id="tog">&#9776;</button>
+            </div>
+    </body>
+</html>

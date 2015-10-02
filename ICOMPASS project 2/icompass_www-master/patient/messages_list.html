@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/prima.css">
+        <link rel="stylesheet" type="text/css" href="../css/common.css">
+        <script src="../js/jquery.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/meth.js"></script>
+        <title>Hello World</title>
+    </head>
+
+    <body>
+        <div id="back">
+
+        </div>
+        <div id="fore">
+            <div id="cont">
+                <center>
+                    <h1>Messages</h1>
+                    <button class="edit-message-button">Edit</button>
+
+                    <table class="messages-wrapper-table">
+                        <tr>
+                            <td class="individual-message-wrapper first-individual-message-wrapper">
+                                <table class="individual-message-wrapper-table">
+                                    <tr>
+                                        <td rowspan="2" class="sender-cell">Dominador Magtanggol</td>
+                                        <td class="date-time-cell">9/22/2015</td>
+                                        <td rowspan="2" class="right-arrow-cell">&gt;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="date-time-cell">12:01 PM</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">I was a young boy that had big plans. Now I'm just another shi**y old man.</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="individual-message-wrapper">
+                                <table class="individual-message-wrapper-table">
+                                    <tr>
+                                        <td rowspan="2" class="sender-cell">Dominador Magtanggol</td>
+                                        <td class="date-time-cell">10/23/2015</td>
+                                        <td rowspan="2" class="right-arrow-cell">&gt;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="date-time-cell">7:11 AM</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">Life's a witch and so am I. The world owes me so screw you.</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="individual-message-wrapper">
+                                <table class="individual-message-wrapper-table">
+                                    <tr>
+                                        <td rowspan="2" class="sender-cell">Dominador Magtanggol</td>
+                                        <td class="date-time-cell">11/23/2015</td>
+                                        <td rowspan="2" class="right-arrow-cell">&gt;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="date-time-cell">7:11 PM</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">Wasted youth and a fistful of ideals. I had a young and optimistic point of view.</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </div>
+            <div id="head">
+                <button id="tog">&#9776;</button>
+            </div>
+    </body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        //If any of the messages is clicked:
+        $('.individual-message-wrapper-table').click(function(){
+            window.location = "message.html";
+        });
+
+        //If the edit-button is clicked:
+        var msg_button_state = "view_mode";
+        $('.edit-message-button').click(function(){
+            if(msg_button_state == "view_mode") {
+                msg_button_state = "edit_mode";
+                $('.edit-message-button').html("Done");
+                $('.messages-wrapper-table').animate({left:"+=3em"}, 200);
+            }
+            else if(msg_button_state == "edit_mode") {
+                msg_button_state = "view_mode";
+                $('.edit-message-button').html("Edit");
+                $('.messages-wrapper-table').animate({left:"-=3em"}, 200);
+            }
+        });
+    });
+</script>
