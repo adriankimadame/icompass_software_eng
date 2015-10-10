@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/prima.css">
+        <link rel="stylesheet" type="text/css" href="../css/common.css">
+        <!-- Bootstrap Core CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/dist/css/sb-admin-2.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="../../startbootstrap-sb-admin-2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/meth.js"></script>
+        <script src="../js/screen-changer.js"></script>
+            <!-- jQuery -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../../startbootstrap-sb-admin-2-1.0.7/dist/js/sb-admin-2.js"></script>
+        <style type="text/css">
+            a:hover{
+                background-color: green;
+            }
+
+            .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+                color: #fff;
+                background-color: #ef8a13;
+            }
+
+            a {
+                color: #ef8a13;
+                text-decoration: none;
+            }
+
+            .form-control-override{
+                width: 50%;
+            }
+
+            #update-prescription-button-save{
+                display: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="back">
+
+        </div>
+        <div id="fore">
+            <div id="cont">
+            <center>
+                <div id="text-wrapper">
+
+                                <select class="form-control form-control-override" onchange="pagechange()" id="changer">
+                                    <option>Choose Patient</option>
+                                    <option>Patient 1</option>
+                                    <option>Patient 2</option>
+                                    <option>Patient 3</option>
+                                </select>
+                           
+
+                            
+
+                                <div id="patient-prescription">
+                                    <div id="content-prescriptions">
+                                        <textarea placeholder="Please enter your prescriptions here." id="update-prescriptions-textarea" readonly>There is something here</textarea>
+                                        <br>
+                                        <button id="update-prescription-button" onclick="updatePrescriptions()">Update</button>
+                                        <button id="update-prescription-button-save" onclick="updatePrescriptions2()">Save</button>
+                                    </div>
+                                </div>
+
+                               
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+                    <script>
+                        $(document).ready(function(){
+                            $('#button-personal-info').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-prescriptions').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-pain-test-results').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"black"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"#ef8a13"
+                                });
+                            });
+
+                            $('#button-doctors-list').click(function(){
+                                $('#button-personal-info').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-prescriptions').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-pain-test-results').css({
+                                    "background-color":"#ef8a13"
+                                });
+
+                                $('#button-doctors-list').css({
+                                    "background-color":"black"
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </center>
+            </div>
+        </div>
+            <div id="head">
+                <button id="tog">&#9776;</button>
+            </div>
+    </body>
+</html>

@@ -20,6 +20,7 @@
         <script src="../js/jquery.js"></script>
         <script src="../js/common.js"></script>
         <script src="../js/meth.js"></script>
+        <script src="../js/screen-changer2.js"></script>
             <!-- jQuery -->
         <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -45,8 +46,40 @@
                 color: #ef8a13;
                 text-decoration: none;
             }
-            
+
+            .form-control-override{
+                width: 50%;
+            }
+
+            #assigned-patients{
+                display: none;
+            }    
         </style>
+        
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#button").click(function(){
+            $("#specialty").html("<input type='text' id='specialty'>");
+            $("#hours").html("<input type='text' id='hours'>");
+            $("#contactNumber").html("<input type='text' id='contactNumber'>");
+            $("#lastName").html("<input type='text' id='lastName'>");
+            $("#firstName").html("<input type='text' id='firstName'>");
+            $("#middleName").html("<input type='text' id='middleName'>");
+            });
+
+            $("#button2").click(function(){
+            $("#specialty").html("Oncology");
+            $("#hours").html("meow");
+            $("#contactNumber").html("09227792279");
+            $("#lastName").html("Eustaquio");
+            $("#firstName").html("Mark");
+            $("#middleName").html("Ian");
+            });
+
+            })
+        </script>
+
     </head>
     <body>
         <div id="back">
@@ -56,72 +89,185 @@
             <div id="cont">
             <center>
                 <div id="text-wrapper">
-                    <h1>Eustaquio, Mark Ian</h1>
+                    <div class="doctor-name-and-pic"><img src="../img/patient0.png" class="doc-pic"></div>
+                    <div class="doctor-name-and-pic" style="text-align:left;">
+                        <h4 id="lastName">Eustaquio</h4>
+                        <h4 id="firstName">Mark</h4>
+                        <h4 id="middleName">Ian</h4>
+                    </div>
 
                     <div class="panel panel-default">
-                      
-                        <!-- /.panel-heading -->
-                        <div class="panel-body overrideclass">
-                            <!-- Nav tabs -->
 
-                            <ul class="nav nav-pills nav-justified">
-                                <li class="active"><a href="#personal-info-pills" data-toggle="tab">Personal Info</a>
-                                </li>
-                                <li><a href="#prescription-pills" data-toggle="tab">Prescriptions</a>
-                                </li>
+                            <ul class="nav nav-pills">
+                                <select class="form-control form-control-override" onchange="pagechange()" id="changer">
+                                    <option value="Personal Info">Personal Info</option>
+                                    <option value="Assigned Patients">Assigned Patients</option>
+                                </select>
                             </ul>
+                            
+
+                            <!-- <ul class="nav nav-tabs">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#personal-info-pills">Test1</a></li>
+                                        <li><a href="#prescription-pills">Test2</a></li>
+                                        <li><a href="#test-results-pills">Test3</a></li>
+                                        <li><a href="#doctors-pills">Test4</a></li>
+                                    </ul>
+                                </li>
+                            </ul> -->
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane fade in active" id="personal-info-pills">
-                                    <div id="table-personal-info-wrapper">
+                                <br>
+                                <div id="doctor-personal-info">
+                                    <div id="content-personal-info">
                                         <table id="table-personal-info">
                                             <tr>
                                                 <td class="label2">Username:</td>
-                                                <td class="info">IEustaquio</td>
+                                                <td class="info" id="username">IEustaquio</td>
                                             <tr>
                                                 
                                             <tr>
                                                 <td class="label2">Password:</td>
-                                                <td class="info"><a href="pass_reset.html"><i>Change Password</i></a></td>
+                                                <td class="info" id=""><a href="pass_reset.html"><i>Change Password</i></a></td>
                                             <tr>
 
-                                            <tr>
+                                            <!-- <tr>
                                                 <td class="label2">Last name:</td>
-                                                <td class="info">Eustaquio</td>
+                                                <td class="info" id="">Eustaquio</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="label2">First name:</td>
-                                                <td class="info">Mark</td>
+                                                <td class="info" id="">Mark</td>
                                             </tr>
 
                                             <tr>
                                                 <td class="label2">Middle name:</td>
-                                                <td class="info">Ian</td>
-                                            </tr>
+                                                <td class="info" id="">Ian</td>
+                                            </tr> -->
+
                                             <tr>
                                                 <td class="label2">Specialty:</td>
-                                                <td class="info">Oncology</td>
+                                                <td class="info" id="specialty">Oncology</td>
                                             </tr>
                                             <tr>
                                                 <td class="label2" colspan="2">Clinic Hours:</td>
                                             </tr>
                                             <tr>
-                                                <td class="label2" colspan="2"><span style="margin-left:20px">Meow</span></td>
+                                                <td class="label2" colspan="2" id="hours"><span style="margin-left:20px">Meow</span></td>
                                             </tr>
                                             <tr>
                                                 <td class="label2">Contact Number:</td>
-                                                <td class="info">09227792279</td>
+                                                <td class="info" id="contactNumber">09227792279</td>
                                             </tr>
                                         </table>
+                                        <button id="button">Edit</button>
+                                        <button id="button2">Save</button>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="prescription-pills">
+
+                                <div id="assigned-patients">
                                     <div id="content-prescriptions">
-                                        <textarea placeholder="Please enter your prescriptions here." id="view-patient-prescriptions-textarea"></textarea>
-                                        <br>
-                                        <button id="edit-prescription-button">Edit</button>
+                                       <h4>Main Patients</h4>
+                                       <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <hr>
+
+                                    <h4>Other Patients</h4>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
                                     </div>
                                 </div>
                                 

@@ -20,6 +20,7 @@
         <script src="../js/jquery.js"></script>
         <script src="../js/common.js"></script>
         <script src="../js/meth.js"></script>
+        <script src="../js/screen-changer.js"></script>
             <!-- jQuery -->
         <script src="../../startbootstrap-sb-admin-2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -45,6 +46,23 @@
                 color: #ef8a13;
                 text-decoration: none;
             }
+
+            .form-control-override{
+                width: 50%;
+            }
+
+            #patient-prescription{
+                display: none;
+            }
+            #patient-summary{
+                display: none;
+            }
+            #patient-doctor-list{
+                display: none;
+            }
+            #edit-prescription-button-save{
+                display:none;
+            }
             
         </style>
     </head>
@@ -56,26 +74,21 @@
             <div id="cont">
             <center>
                 <div id="text-wrapper">
-                    <h1>Powers, Amor Capistrano</h1>
+                    
+                    <div class="patient-name-and-pic"><img src="../img/patient0.png" class="doc-pic"></div>
+                    <div class="patient-name-and-pic"><h1>Powers, Amor Capistrano</h1></div>
 
-                    <div class="panel panel-default">
-                      
-                        <!-- /.panel-heading -->
-                        <div class="panel-body overrideclass">
-                            <!-- Nav tabs -->
+                   
+                                <select class="form-control form-control-override" onchange="pagechange()" id="changer">
+                                    <option value="Personal Info">Personal Info</option>
+                                    <option value="Prescriptions">Prescriptions</option>
+                                    <option value="Pain Test Results">Pain Test Results</option>
+                                    <option value="Doctors">Doctors</option>
+                                </select>
+                           
+                            
 
-                            <!-- <ul class="nav nav-pills">
-                                <li class="active"><a href="#personal-info-pills" data-toggle="tab">Personal Info</a>
-                                </li>
-                                <li><a href="#prescription-pills" data-toggle="tab">Prescriptions</a>
-                                </li>
-                                <li><a href="#test-results-pills" data-toggle="tab">Pain Test Results</a>
-                                </li>
-                                <li><a href="#doctors-pills" data-toggle="tab">Doctors</a>
-                                </li>
-                            </ul> -->
-
-                            <ul class="nav nav-tabs">
+                            <!-- <ul class="nav nav-tabs">
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1
                                     <span class="caret"></span></a>
@@ -86,43 +99,38 @@
                                         <li><a href="#doctors-pills">Test4</a></li>
                                     </ul>
                                 </li>
-                            </ul>
+                            </ul> -->
 
                             <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="personal-info-pills">
+
+                                <br>
+                                <div id="patient-personal-info">
                                     <div id="content-personal-info">
                                         <table>
                                             <tr>
                                                 <td>Diagnosis:</td>
                                                 <td>Some disease</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Allergies:</td>
                                                 <td>None</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Initial height:</td>
                                                 <td>170cm</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Initial weight:</td>
                                                 <td>65kg</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Birthdate:</td>
                                                 <td>June 18, 1998</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Contact number:</td>
                                                 <td>09325555081</td>
                                             </tr>
-
                                             <tr>
                                                 <td>Email address:</td>
                                                 <td>amorpowers@rocketmail.com</td>
@@ -130,14 +138,17 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="prescription-pills">
+
+                                <div id="patient-prescription">
                                     <div id="content-prescriptions">
-                                        <textarea placeholder="Please enter your prescriptions here." id="view-patient-prescriptions-textarea"></textarea>
+                                        <textarea placeholder="Please enter your prescriptions here." id="view-patient-prescriptions-textarea" readonly>There is something here</textarea>
                                         <br>
-                                        <button id="edit-prescription-button">Edit</button>
+                                        <button id="edit-prescription-button" onclick="editPrescriptions()">Edit</button>
+                                        <button id="edit-prescription-button-save" onclick="editPrescriptions2()">Save</button>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="test-results-pills">
+
+                                <div id="patient-summary">
                                     <div id="content-pain-test-results">
                                         <center>
                                             <p>Summary</p>
@@ -149,11 +160,52 @@
                                         </center>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="doctors-pills">
-                                    <h4>Profile Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                                <div id="patient-doctor-list">
+                                    <h4>Pain Doctor</h4>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <a href="patient_change-pain-doctor.html" class="btn btn-warning" id="icompass-button">Change</a>
+                                    <hr>
+
+                                    <h4>Other Doctors</h4>
+                                    <table>
+                                        <tr>
+                                            <td><img src="../img/patient0.png" class="doc-pic"></td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>Name:</td>
+                                                        <td>Amor C. Powers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Specialty:</td>
+                                                        <td>Oncology</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <a href="patient_add-other-doctor.html" class="btn btn-warning" id="icompass-button-new">Add</a><a href="patient_remove-other-doctor.html" class="btn btn-warning" id="icompass-button-new">Remove</a>
                                 </div>
-                            </div>
+
                         </div>
                         <!-- /.panel-body -->
                     </div>

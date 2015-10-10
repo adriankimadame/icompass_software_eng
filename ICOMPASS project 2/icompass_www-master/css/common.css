@@ -45,6 +45,16 @@ body {
 	border-radius: 5px;
 	border: none;
 }
+#icompass-button-new {
+    padding: 15px;
+    margin: 15px;
+    font-size: 16pt;
+    width: 40%;
+    background-color: #ef8a13;
+    color: #f0f0f0;
+    border-radius: 5px;
+    border: none;
+}
 
 #button-start-esas:focus {
 	outline: 0;
@@ -195,6 +205,13 @@ body {
     width: 50%;
     height: 70px;
 }
+#update-prescriptions-textarea {
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    height: 70px;
+}
+
 
 #edit-prescription-button {
     padding-left: 15px;
@@ -207,7 +224,40 @@ body {
 	color: #f0f0f0;
 	border: none;
 }
+#edit-prescription-button-save {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin: 15px;
+    font-size: 14pt;
+    background-color: #ef8a13;
+    color: #f0f0f0;
+    border: none;
+}
 
+#update-prescription-button {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin: 15px;
+    font-size: 14pt;
+    background-color: #ef8a13;
+    color: #f0f0f0;
+    border: none;
+}
+#update-prescription-button-save {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin: 15px;
+    font-size: 14pt;
+    background-color: #ef8a13;
+    color: #f0f0f0;
+    border: none;
+}
 #content-pain-test-results p {
     text-align: center;
     line-height: 1.0;
@@ -242,4 +292,11 @@ body {
 .doc-pic{
     height: 100px;
     width: 100px;
+}
+
+.doctor-name-and-pic{
+    display: inline-block;
+}
+.patient-name-and-pic{
+    display: inline-block;
 }
